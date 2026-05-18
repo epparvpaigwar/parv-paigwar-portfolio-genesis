@@ -15,17 +15,30 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
-  const categories = ["All", "Web", "AI", "Full-Stack", "ML"];
+  const categories = ["All", "AI", "Full-Stack", "Web", "ML"];
   const [activeCategory, setActiveCategory] = useState("All");
-  
+
   const projects: Project[] = [
     {
-      title: "NullNix",
-      description: "Backend-driven web app to simplify data preprocessing and EDA with features like log transformation, scaling, outlier detection, and visual analytics.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Django REST Framework", "JWT", "PostgreSQL", "React"],
-      isInDevelopment: true,
-      categories: ["AI", "Full-Stack", "ML"]
+      title: "KitaabSe — AI Audiobook Generator",
+      description: "Founder & Developer. AI-driven audiobook platform that converts uploaded PDF books into real-time audiobooks — listen privately or publish publicly for global access. Reduces screen strain and improves accessibility. Full-stack with React + DRF, Redis background tasks, PostgreSQL, JWT Auth, and EdgeTTS + Gemini AI for automatic audio generation, text extraction, and real-time processing. Secure file handling, Docker-based deployment (Render + Netlify), and live audio status tracking.",
+      image: "https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&w=800&q=80",
+      technologies: ["React", "Django REST Framework", "PostgreSQL", "Redis", "JWT", "EdgeTTS", "Gemini AI", "Docker"],
+      categories: ["AI", "Full-Stack"]
+    },
+    {
+      title: "Geospatial Platform (Engineer Philosophy)",
+      description: "Backend modernization of a legacy geospatial product into a scalable architecture. PostGIS-powered mapping APIs, local DB sync, CRM (Zoho/Salesforce) and payment integrations, indexing + hash partitioning for large-scale performance, and a microservices design with a Rust tile server and Redis + AWS SQS async pipelines.",
+      image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80",
+      technologies: ["Django REST Framework", "PostgreSQL", "PostGIS", "Rust", "Redis", "AWS SQS", "Docker", "AWS"],
+      categories: ["Full-Stack"]
+    },
+    {
+      title: "MCP Agentic AI Chatbot",
+      description: "Built an MCP-based agentic AI assistant with tool calling and multi-agent orchestration, embedded inside the product to drive real-world task execution and AI-assisted workflows.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+      technologies: ["MCP", "Multi-Agent", "Tool Calling", "Python", "Claude"],
+      categories: ["AI"]
     },
     {
       title: "Haki E-Commerce Website",
@@ -37,25 +50,17 @@ const Projects: React.FC = () => {
     },
     {
       title: "Spotify Clone",
-      description: "Replicated core Spotify functionalities including play, skip, shuffle, repeat, playlist creation, and localStorage support.",
+      description: "Replicated core Spotify functionality including play, skip, shuffle, repeat, playlist creation, and localStorage persistence.",
       image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?auto=format&fit=crop&w=800&q=80",
       technologies: ["HTML", "CSS", "JavaScript"],
       liveUrl: "https://parvspotify.netlify.app/",
       categories: ["Web"]
     },
     {
-      title: "Grocery Store Management System",
-      description: "Complete system with inventory tracking, order management, and sales analytics built with Flask and MySQL.",
-      image: "/lovable-uploads/ddde631d-8267-450e-9935-64c3833d2567.png",
-      technologies: ["Flask", "MySQL", "HTML", "CSS", "JavaScript"],
-      githubUrl: "https://github.com/Parvpaigwar/Grocesory-Management-System",
-      categories: ["Web", "Full-Stack"]
-    },
-    {
       title: "House Price Prediction Model",
       description: "Linear regression model for real estate price forecasting with feature engineering, EDA, and model tuning.",
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Linear Regression", "Python", "Scikit-learn", "Pandas", "Matplotlib"],
+      technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Linear Regression"],
       githubUrl: "https://github.com/Parvpaigwar/House-Price-Prediction",
       categories: ["ML"]
     }

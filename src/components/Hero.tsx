@@ -23,25 +23,27 @@ const Hero: React.FC = () => {
             </h1>
             
             <h2 className="text-2xl md:text-3xl font-semibold text-soft-purple">
-              Backend Developer | AI Explorer | Django + DRF Expert | LLM Tools Practitioner
+              Associate Software Engineer | Django + DRF | PostgreSQL/PostGIS | Rust | MCP Agentic AI
             </h2>
-            
+
             <div className="h-12 font-mono text-neon-cyan text-lg">
-              <Typewriter 
+              <Typewriter
                 texts={[
-                  "Clean Code", 
-                  "Secure APIs", 
-                  "Scalable Systems", 
-                  "AI Integration"
+                  "Scalable Backends",
+                  "Geospatial APIs (PostGIS)",
+                  "Rust Tile Servers",
+                  "MCP Agentic AI",
+                  "AWS + Docker + Redis"
                 ]}
               />
             </div>
             
             <div className="flex flex-wrap gap-4 md:gap-6 pt-6">
-              <a 
-                href="https://drive.google.com/file/d/1XyQ_3xWqA8FUqQZR-0QrqCtt4mxKHjFr/view?usp=sharing" 
+              <a
+                href="/Parv_Paigwar_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                download
                 className="relative inline-flex group"
               >
                 <Button variant="outline" className="bg-transparent border border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10 group-hover:animate-glow flex gap-2">
@@ -73,7 +75,8 @@ const Hero: React.FC = () => {
           </div>
           
           <div className="lg:col-span-2 animate-fade-in">
-            <div className="relative mx-auto w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-neon-cyan/30 transition-all duration-300 hover:border-neon-cyan">
+            <div className="relative mx-auto w-72 h-72 md:w-[420px] md:h-[420px]">
+              <div className="absolute inset-0 rounded-full bg-neon-cyan/10 blur-3xl animate-pulse-slow" />
               <HolographicOrb />
             </div>
           </div>

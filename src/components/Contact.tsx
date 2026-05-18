@@ -4,7 +4,7 @@ import SectionTitle from './SectionTitle';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Send, Github, Linkedin, Loader2 } from 'lucide-react';
+import { Mail, Send, Github, Linkedin, Loader2, Phone, Code2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact: React.FC = () => {
@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-dark-bg to-deep-blue/30 relative">
+    <section id="contact" className="py-20 px-6 md:px-12 lg:px-24 relative">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-neon-cyan/5 rounded-full blur-[100px] -z-10" />
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-soft-purple/5 rounded-full blur-[80px] -z-10" />
@@ -59,49 +59,59 @@ const Contact: React.FC = () => {
             
             <div className="flex items-center gap-3 text-soft-purple">
               <Mail size={20} className="text-neon-cyan" />
-              <a 
-                href="mailto:parvpaigwar@gmail.com" 
+              <a
+                href="mailto:parvpaigwar@gmail.com"
                 className="hover:text-neon-cyan transition-colors duration-300"
               >
                 parvpaigwar@gmail.com
               </a>
             </div>
-            
+
+            <div className="flex items-center gap-3 text-soft-purple">
+              <Phone size={20} className="text-neon-cyan" />
+              <a
+                href="tel:+919407161837"
+                className="hover:text-neon-cyan transition-colors duration-300"
+              >
+                +91 94071 61837
+              </a>
+            </div>
+
             <div className="flex gap-4 mt-8">
-              <a 
-                href="https://github.com/Parvpaigwar" 
+              <a
+                href="https://github.com/Parvpaigwar"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
                 className="w-12 h-12 rounded-full bg-deep-blue/80 flex items-center justify-center text-soft-purple hover:text-neon-cyan hover:border-neon-cyan border border-transparent transition-all duration-300"
               >
                 <Github size={24} />
               </a>
-              <a 
-                href="https://www.linkedin.com/in/parv-paigwar-0a68ab255" 
+              <a
+                href="https://www.linkedin.com/in/parv-paigwar-0a68ab255"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="w-12 h-12 rounded-full bg-deep-blue/80 flex items-center justify-center text-soft-purple hover:text-neon-cyan hover:border-neon-cyan border border-transparent transition-all duration-300"
               >
                 <Linkedin size={24} />
               </a>
+              <a
+                href="https://leetcode.com/u/parvpaigwar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LeetCode"
+                className="w-12 h-12 rounded-full bg-deep-blue/80 flex items-center justify-center text-soft-purple hover:text-neon-cyan hover:border-neon-cyan border border-transparent transition-all duration-300"
+              >
+                <Code2 size={24} />
+              </a>
             </div>
-            
+
             <div className="glass-card p-6 mt-8">
-              <h4 className="text-lg font-semibold text-white mb-3">Certifications</h4>
-              <ul className="space-y-2 text-soft-purple">
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-neon-cyan rounded-full"></span>
-                  <span>C++ with DSA (Physics Wallah – Decode Batch)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-neon-cyan rounded-full"></span>
-                  <span>Machine Learning Course (Internshala)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-neon-cyan rounded-full"></span>
-                  <span>Solved questions consistently to strive for perfection on LeetCode</span>
-                </li>
-              </ul>
+              <h4 className="text-lg font-semibold text-white mb-3">Education</h4>
+              <p className="text-soft-purple">
+                Bachelor of Computer Application (BCA) — Makhanlal Chaturvedi University, Bhopal
+              </p>
             </div>
           </div>
           

@@ -5,7 +5,7 @@ import { Code, Database, Server, Cloud, Award, Brain } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-dark-bg to-deep-blue/30">
+    <section id="about" className="py-20 px-6 md:px-12 lg:px-24 relative">
       <div className="container mx-auto">
         <SectionTitle 
           title="About Me" 
@@ -16,23 +16,26 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in-up">
             <p className="text-lg text-gray-300">
-              I'm a <span className="text-neon-cyan font-medium">passionate backend developer</span> with expertise 
-              in Django REST Framework, PostgreSQL/PostGIS, JWT authentication, and AWS deployment.
+              I'm a <span className="text-neon-cyan font-medium">Backend Developer</span> with 1 year of experience
+              building scalable systems and APIs using Python, Django REST Framework, PostgreSQL, AWS, and Docker.
             </p>
-            
+
             <p className="text-lg text-gray-300">
-              As an <span className="text-neon-cyan font-medium">AI enthusiast</span>, I enjoy building LLM-integrated tools 
-              using OpenAI, Gemini, and Ollama with deployment knowledge on GPU and NCP servers.
+              Currently <span className="text-neon-cyan font-medium">Associate Software Engineer at Engineer Philosophy</span>,
+              where I lead backend work on a geospatial platform — modernizing legacy systems, designing PostGIS-powered APIs,
+              and integrating CRMs (Zoho, Salesforce) and payment workflows.
             </p>
-            
+
             <p className="text-lg text-gray-300">
-              I'm currently developing <span className="text-neon-cyan font-medium">NullNix</span>, a one-click data preprocessing 
-              tool for Exploratory Data Analysis (EDA) that simplifies the analytics workflow.
+              I shipped a <span className="text-neon-cyan font-medium">Rust tile server</span> with async pipelines on
+              Redis + AWS SQS, boosting throughput by up to <span className="text-neon-cyan font-medium">80%</span>.
+              I also built an <span className="text-neon-cyan font-medium">MCP-based agentic AI chatbot</span> with tool
+              calling and multi-agent orchestration that drives real workflows inside the product.
             </p>
-            
+
             <p className="text-lg text-gray-300">
-              Known for writing <span className="text-neon-cyan font-medium">clean, modular, and scalable code</span>, 
-              I love solving backend architecture challenges and continuously learning about Large Language Models.
+              I care about <span className="text-neon-cyan font-medium">distributed systems, database architecture,</span> and
+              writing seamless, high-performance software designed to handle large-scale traffic.
             </p>
           </div>
           
@@ -40,33 +43,33 @@ const About: React.FC = () => {
             {[
               {
                 icon: <Server className="text-neon-cyan" size={24} />,
-                title: "Backend Dev",
-                description: "Django & DRF expert focusing on RESTful APIs and database optimization"
+                title: "Backend Engineering",
+                description: "Django, DRF, FastAPI, Flask — RESTful APIs, Celery, JWT, and high-performance services"
               },
               {
                 icon: <Database className="text-neon-cyan" size={24} />,
-                title: "Database Design",
-                description: "Experience with PostgreSQL, PostGIS, MongoDB and complex data modeling"
+                title: "Databases & PostGIS",
+                description: "PostgreSQL, MySQL, MongoDB — indexing, hash partitioning, geospatial queries"
               },
               {
                 icon: <Brain className="text-neon-cyan" size={24} />,
-                title: "AI Integration",
-                description: "Building tools with OpenAI, Gemini, and custom LLM implementations"
+                title: "MCP Agentic AI",
+                description: "Built MCP chatbots with tool calling and multi-agent orchestration for real task execution"
               },
               {
                 icon: <Cloud className="text-neon-cyan" size={24} />,
-                title: "Cloud Deployment",
-                description: "Deploying and scaling applications on AWS and NCP servers"
+                title: "AWS + Docker",
+                description: "Containerized deployments, AWS SQS async pipelines, scalable production infrastructure"
               },
               {
                 icon: <Code className="text-neon-cyan" size={24} />,
-                title: "Clean Code",
-                description: "Writing modular, testable, and maintainable software"
+                title: "Rust + Microservices",
+                description: "High-performance Rust tile server with async Redis pipelines — up to 80% faster"
               },
               {
                 icon: <Award className="text-neon-cyan" size={24} />,
-                title: "Problem Solver",
-                description: "Strengthened DSA skills using LeetCode"
+                title: "Data Science & ML",
+                description: "Pandas, NumPy, Matplotlib, Seaborn — regression, feature engineering, clustering"
               }
             ].map((item, index) => (
               <div 

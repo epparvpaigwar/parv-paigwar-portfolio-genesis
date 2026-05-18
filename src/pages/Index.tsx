@@ -8,7 +8,7 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import AnimatedCursor from "@/components/AnimatedCursor";
+import Scene3D from "@/components/Scene3D";
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -68,8 +68,8 @@ const Index: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-bg text-white relative overflow-hidden">
-      <AnimatedCursor />
+    <div className="min-h-screen text-white relative">
+      <Scene3D />
       <NavBar />
       <Hero />
       <About />

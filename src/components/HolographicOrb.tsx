@@ -1,95 +1,145 @@
+import React, { useRef, useMemo } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { MeshDistortMaterial, Sparkles, Float } from '@react-three/drei';
+import * as THREE from 'three';
+import WebGLBoundary from './WebGLBoundary';
 
-import React, { useEffect, useRef } from 'react';
+const NEON = '#64ffda';
+const PURPLE = '#9d4edd';
 
-const HolographicOrb: React.FC = () => {
-  const particleRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    // Create random particles
-    if (particleRef.current) {
-      const particleContainer = particleRef.current;
-      particleContainer.innerHTML = '';
-      
-      for (let i = 0; i < 30; i++) {
-        const particle = document.createElement('div');
-        const size = Math.random() * 4 + 1;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const duration = Math.random() * 10 + 5;
-        const delay = Math.random() * 5;
-        
-        particle.className = 'absolute rounded-full bg-neon-cyan';
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.top = `${posY}%`;
-        particle.style.opacity = `${Math.random() * 0.5 + 0.2}`;
-        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite alternate`;
-        
-        particleContainer.appendChild(particle);
-      }
-    }
-  }, []);
+const Ring: React.FC<{ radius: number; tube: number; rotation: [number, number, number]; color: string; speed: number }> = ({
+  radius,
+  tube,
+  rotation,
+  color,
+  speed,
+}) => {
+  const ref = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    if (!ref.current) return;
+    const t = state.clock.elapsedTime;
+    ref.current.rotation.x = rotation[0] + Math.sin(t * speed) * 0.3;
+    ref.current.rotation.y = rotation[1] + t * speed * 0.5;
+    ref.current.rotation.z = rotation[2] + t * speed * 0.3;
+  });
 
   return (
-    <div className="portal-container w-full h-full flex items-center justify-center">
-      {/* Main portal ring */}
-      <div className="portal relative w-64 h-64 md:w-80 md:h-80">
-        {/* Outer ring - pulsating */}
-        <div className="absolute inset-0 rounded-full border-8 border-neon-cyan/30 animate-pulse"></div>
-        
-        {/* Geometric hexagonal pattern over ring */}
-        <div className="absolute inset-0 rounded-full overflow-hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTEwIDAgTDIwIDEwIEwxMCAyMCBMMCAxMCBaIiBzdHJva2U9InJnYmEoMTAwLCAyNTUsIDIxOCwgMC4yKSIgc3Ryb2tlLXdpZHRoPSIwLjUiIGZpbGw9Im5vbmUiLz48L3N2Zz4=')] opacity-30"></div>
-        </div>
-        
-        {/* Middle layers with gradient swirls */}
-        <div className="absolute inset-8 rounded-full bg-deep-blue"></div>
-        
-        {/* Inner portal energy - swirling */}
-        <div className="absolute inset-12 rounded-full bg-gradient-to-br from-neon-cyan/40 to-emerald-600/20 overflow-hidden">
-          {/* Animated swirls */}
-          <div className="absolute inset-0 rounded-full animate-spin-slow opacity-50">
-            <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
-            <div className="absolute top-0 left-1/2 h-full w-1 bg-gradient-to-b from-transparent via-emerald-500 to-transparent"></div>
-          </div>
-          <div className="absolute inset-0 rounded-full animate-spin-slower-reverse opacity-60">
-            <div className="absolute top-1/3 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-neon-cyan to-transparent"></div>
-            <div className="absolute bottom-1/4 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-teal-300 to-transparent"></div>
-          </div>
-          
-          {/* Digital circuit patterns */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMCBMNDAgMCBNMCAxMCBMMjAgMTAgTDIwIDMwIEw0MCAzMCBNMCAyMCBMNDAgMjAgTTAgMzAgTDEwIDMwIEwxMCA0MCBNMjAgMCBMMjAgMTAgTTQwIDEwIEw0MCA0MCBNMCA0MCBMNCA0MCIgc3Ryb2tlPSJyZ2JhKDEwMCwgMjU1LCAyMTgsIDAuMikiIHN0cm9rZS13aWR0aD0iMC41IiBmaWxsPSJub25lIi8+PC9zdmc+')] opacity-20 animate-pulse"></div>
-        </div>
+    <mesh ref={ref}>
+      <torusGeometry args={[radius, tube, 16, 100]} />
+      <meshStandardMaterial
+        color={color}
+        emissive={color}
+        emissiveIntensity={1.2}
+        toneMapped={false}
+      />
+    </mesh>
+  );
+};
 
-        {/* Center energy core */}
-        <div className="absolute inset-[30%] rounded-full bg-neon-cyan/50 animate-pulse-slow backdrop-blur-md"></div>
-        
-        {/* Energy flares */}
-        <div className="absolute inset-4 rounded-full">
-          <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-16 bg-teal-400/30 blur-lg animate-flicker"></div>
-          <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-10 h-16 bg-emerald-400/30 blur-lg animate-flicker-delay"></div>
-          <div className="absolute top-1/2 -left-5 -translate-y-1/2 w-16 h-10 bg-neon-cyan/30 blur-lg animate-flicker-delay-2"></div>
-          <div className="absolute top-1/2 -right-5 -translate-y-1/2 w-16 h-10 bg-teal-400/30 blur-lg animate-flicker"></div>
-        </div>
-        
-        {/* Energy bolts */}
-        <div className="absolute inset-0 rounded-full">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-8 bg-neon-cyan/70 animate-energy-bolt"></div>
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[2px] h-8 bg-neon-cyan/70 animate-energy-bolt-delay"></div>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[2px] w-8 bg-neon-cyan/70 animate-energy-bolt-delay-2"></div>
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[2px] w-8 bg-neon-cyan/70 animate-energy-bolt"></div>
-        </div>
-        
-        {/* Floating particles */}
-        <div ref={particleRef} className="absolute inset-0 overflow-hidden rounded-full"></div>
-        
-        {/* Overlay effect */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-deep-blue/10 via-transparent to-neon-cyan/10 backdrop-blur-[1px]"></div>
-        
-        {/* Glow effect */}
-        <div className="absolute -inset-4 rounded-full bg-neon-cyan/5 blur-xl animate-glow"></div>
-      </div>
+const Core: React.FC = () => {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    if (!meshRef.current) return;
+    meshRef.current.rotation.y = state.clock.elapsedTime * 0.4;
+    meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
+  });
+
+  return (
+    <Float speed={2} rotationIntensity={0.4} floatIntensity={0.6}>
+      <mesh ref={meshRef}>
+        <sphereGeometry args={[1, 96, 96]} />
+        <MeshDistortMaterial
+          color={NEON}
+          emissive={NEON}
+          emissiveIntensity={0.6}
+          distort={0.45}
+          speed={2.2}
+          roughness={0.15}
+          metalness={0.8}
+        />
+      </mesh>
+    </Float>
+  );
+};
+
+const OrbitingDots: React.FC = () => {
+  const groupRef = useRef<THREE.Group>(null);
+
+  const dots = useMemo(() => {
+    const count = 24;
+    return Array.from({ length: count }, (_, i) => {
+      const angle = (i / count) * Math.PI * 2;
+      return {
+        angle,
+        radius: 1.8 + Math.random() * 0.3,
+        size: 0.04 + Math.random() * 0.05,
+        y: (Math.random() - 0.5) * 0.4,
+      };
+    });
+  }, []);
+
+  useFrame((state) => {
+    if (!groupRef.current) return;
+    groupRef.current.rotation.y = state.clock.elapsedTime * 0.6;
+    groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.4) * 0.3;
+  });
+
+  return (
+    <group ref={groupRef}>
+      {dots.map((d, i) => (
+        <mesh key={i} position={[Math.cos(d.angle) * d.radius, d.y, Math.sin(d.angle) * d.radius]}>
+          <sphereGeometry args={[d.size, 12, 12]} />
+          <meshStandardMaterial color={NEON} emissive={NEON} emissiveIntensity={2} toneMapped={false} />
+        </mesh>
+      ))}
+    </group>
+  );
+};
+
+const OrbScene: React.FC = () => {
+  return (
+    <>
+      <ambientLight intensity={0.35} />
+      <pointLight position={[5, 5, 5]} intensity={1.5} color={NEON} />
+      <pointLight position={[-5, -3, -3]} intensity={1} color={PURPLE} />
+
+      <Core />
+      <Ring radius={1.5} tube={0.025} rotation={[Math.PI / 2, 0, 0]} color={NEON} speed={0.6} />
+      <Ring radius={1.7} tube={0.02} rotation={[Math.PI / 3, Math.PI / 4, 0]} color={PURPLE} speed={0.4} />
+      <Ring radius={1.95} tube={0.018} rotation={[0, Math.PI / 6, Math.PI / 3]} color="#7aa2f7" speed={0.3} />
+
+      <OrbitingDots />
+
+      <Sparkles count={80} scale={[5, 5, 5]} size={3} speed={0.6} color={NEON} />
+    </>
+  );
+};
+
+const OrbFallback: React.FC = () => (
+  <div className="w-full h-full flex items-center justify-center">
+    <div className="relative w-3/4 h-3/4">
+      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neon-cyan/40 to-purple-500/30 blur-2xl animate-pulse-slow" />
+      <div className="absolute inset-[15%] rounded-full border-2 border-neon-cyan/50 animate-spin-slow" />
+      <div className="absolute inset-[25%] rounded-full border-2 border-purple-400/50 animate-spin-slow-reverse" />
+      <div className="absolute inset-[35%] rounded-full bg-neon-cyan/30 backdrop-blur-md animate-pulse-slow" />
+    </div>
+  </div>
+);
+
+const HolographicOrb: React.FC = () => {
+  return (
+    <div className="w-full h-full">
+      <WebGLBoundary fallback={<OrbFallback />}>
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 45 }}
+          dpr={[1, 2]}
+          gl={{ antialias: true, alpha: true, powerPreference: 'high-performance', failIfMajorPerformanceCaveat: false }}
+        >
+          <OrbScene />
+        </Canvas>
+      </WebGLBoundary>
     </div>
   );
 };

@@ -16,39 +16,40 @@ const Skills: React.FC = () => {
     {
       title: "Languages",
       icon: <Code size={24} />,
-      skills: ["Python", "C", "C++", "JavaScript", "HTML", "CSS"]
+      skills: ["Python", "Rust", "C", "C++", "JavaScript", "HTML", "CSS"]
     },
     {
-      title: "Web Frameworks",
+      title: "Frameworks & Concepts",
       icon: <Globe size={24} />,
-      skills: ["Django", "Flask", "Django REST Framework", "JWT"]
+      skills: ["Django", "Django REST Framework", "Flask", "FastAPI", "Celery", "MCP", "OOPs"]
     },
     {
       title: "Databases",
       icon: <Database size={24} />,
-      skills: ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "PostGIS"]
+      skills: ["PostgreSQL", "PostGIS", "MySQL", "SQLite", "MongoDB"]
     },
     {
-      title: "Tools",
+      title: "Tools & Services",
       icon: <Terminal size={24} />,
-      skills: ["Git", "GitHub", "Postman", "Jupyter", "VS Code", "Power BI", "Tableau"]
+      skills: ["AWS", "Docker", "Redis", "AWS SQS", "Postman", "Git & GitHub", "Claude"]
     },
     {
       title: "Data Science & ML",
       icon: <BrainCircuit size={24} />,
       skills: [
-        "NumPy", "Pandas", "Scikit-learn", "Linear Regression", "EDA & Feature Engineering", "Model Evaluation"
+        "Pandas", "NumPy", "Matplotlib", "Seaborn", "Linear Regression",
+        "Feature Engineering", "Clustering", "Model Evaluation"
       ]
     },
     {
-      title: "Platforms",
+      title: "Specialties",
       icon: <Server size={24} />,
-      skills: ["AWS", "Netlify", "Google Colab", "NCP servers"]
+      skills: ["MCP Agentic AI", "Multi-Agent Orchestration", "PostGIS Geospatial", "Rust Tile Servers", "Async Pipelines"]
     }
   ];
   
   return (
-    <section id="skills" className="py-20 px-6 md:px-12 lg:px-24 relative bg-dark-bg">
+    <section id="skills" className="py-20 px-6 md:px-12 lg:px-24 relative">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent" />
@@ -97,9 +98,9 @@ const Skills: React.FC = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              "LangChain", "LlamaIndex", "PyTorch", "TensorFlow", 
-              "Kubernetes", "Docker", "FastAPI", "GraphQL",
-              "Next.js", "React", "TypeScript", "Tailwind CSS"
+              "MCP Tool Calling", "Multi-Agent Systems", "Gemini AI", "EdgeTTS",
+              "Kubernetes", "GraphQL", "Rust Async", "gRPC",
+              "Next.js", "React", "TypeScript", "WebSockets"
             ].map((tech, index) => (
               <div 
                 key={tech}

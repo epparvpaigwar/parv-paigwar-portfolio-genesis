@@ -16,41 +16,37 @@ interface ExperienceItem {
 const Experience: React.FC = () => {
   const experiences: ExperienceItem[] = [
     {
-      title: "Python Backend Developer",
+      title: "Associate Software Engineer",
       icon: <span className="text-xl">💼</span>,
       company: "Engineer Philosophy Web Services Pvt. Ltd.",
       period: "May 2025 – Present",
       location: "📍",
       description: [
-        "Leading backend development for a real-world web application, contributing significantly to architecture, security, and performance.",
-        "Refactored a poorly written legacy codebase and rebuilt it cleanly from scratch, resulting in a drastic improvement in server stability and efficiency.",
-        "Reduced server load and resolved frontend integration issues by restructuring the backend logic with optimized API flows.",
-        "Introduced new features and functionality, increasing user satisfaction and improving product performance, which directly impacted sales.",
-        "Integrated scalable database models using PostgreSQL + PostGIS and deployed services using AWS.",
-        "Collaborated with frontend teams to deliver seamless API communication and user experience.",
-        "Integrated LLM tools including LLaMA, Gemini, and OpenAI for AI-powered capabilities."
+        "Led backend development for a geospatial platform, modernizing legacy systems into a scalable architecture — improving stability, reducing issues, and boosting performance for a better user experience.",
+        "Designed high-performance APIs and backend services for local DB sync and geospatial mapping (PostGIS), integrating CRM systems (Zoho, Salesforce), payment workflows, and external APIs — contributing to acquiring and retaining global clients.",
+        "Optimized large-scale database performance using indexing and hash partitioning; managed containerized deployments with Docker and AWS for scalable, reliable production systems.",
+        "Built a microservices architecture with a high-performance Rust tile server and async pipelines using Redis and AWS SQS, improving processing speed and system responsiveness by up to 80% for large-scale geospatial workloads.",
+        "Built an MCP-based agentic AI chatbot with tool calling and multi-agent orchestration, enabling real-world task execution and AI-assisted workflows within the product."
       ],
       badges: ["Full Time", "Current"]
     },
     {
-      title: "Python Backend Developer Intern",
+      title: "Python Developer Intern",
       icon: <span className="text-xl">🧪</span>,
       company: "Engineer Philosophy Web Services Pvt. Ltd.",
       period: "Feb 2025 – Apr 2025",
       location: "📍",
       description: [
-        "Independently developed a backend system from scratch under senior mentorship.",
-        "Cleaned up messy and confusing code, building a fresh, maintainable structure that improved server-side performance.",
-        "Handled complex PostgreSQL + PostGIS integration, API design, and testing.",
-        "Developed JWT Auth flows, custom model serializers, and modular codebases for maintainability.",
-        "Built foundational backend features that enabled frontend teams to integrate without errors or bottlenecks."
+        "Worked on real-world backend systems — handling production issues, API design, and database architecture planning across collaborative engineering teams.",
+        "Built backend modules and APIs from scratch, refactoring unstructured legacy code into a clean, scalable, and maintainable system.",
+        "Designed and integrated advanced backend features with geospatial processing (PostGIS) and robust database architecture — considering real-world query patterns, scalability, and performance for efficient data handling and seamless frontend integration."
       ],
       badges: ["Internship"]
     }
   ];
 
   return (
-    <section id="experience" className="py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-deep-blue/30 to-dark-bg">
+    <section id="experience" className="py-20 px-6 md:px-12 lg:px-24 relative">
       <div className="container mx-auto">
         <SectionTitle 
           title="🧑‍💻 Experience" 
