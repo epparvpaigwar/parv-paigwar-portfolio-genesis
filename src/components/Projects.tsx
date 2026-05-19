@@ -27,20 +27,6 @@ const Projects: React.FC = () => {
       categories: ["AI", "Full-Stack"]
     },
     {
-      title: "Geospatial Platform (Engineer Philosophy)",
-      description: "Backend modernization of a legacy geospatial product into a scalable architecture. PostGIS-powered mapping APIs, local DB sync, CRM (Zoho/Salesforce) and payment integrations, indexing + hash partitioning for large-scale performance, and a microservices design with a Rust tile server and Redis + AWS SQS async pipelines.",
-      image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Django REST Framework", "PostgreSQL", "PostGIS", "Rust", "Redis", "AWS SQS", "Docker", "AWS"],
-      categories: ["Full-Stack"]
-    },
-    {
-      title: "MCP Agentic AI Chatbot",
-      description: "Built an MCP-based agentic AI assistant with tool calling and multi-agent orchestration, embedded inside the product to drive real-world task execution and AI-assisted workflows.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
-      technologies: ["MCP", "Multi-Agent", "Tool Calling", "Python", "Claude"],
-      categories: ["AI"]
-    },
-    {
       title: "Haki E-Commerce Website",
       description: "Full-stack responsive e-commerce platform with product galleries, real-time pricing, and a clean UI/UX design.",
       image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",

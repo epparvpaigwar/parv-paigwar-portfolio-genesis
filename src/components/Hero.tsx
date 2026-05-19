@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowDown, Download, Github, Linkedin } from 'lucide-react';
+import { ArrowDown, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Typewriter from './Typewriter';
 import HolographicOrb from './HolographicOrb';
@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
             </div>
             
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white">
-              Parv Paigwar <span className="inline-block animate-float">👋</span>
+              Parv Paigwar
             </h1>
             
             <h2 className="text-2xl md:text-3xl font-semibold text-soft-purple">
@@ -39,19 +39,6 @@ const Hero: React.FC = () => {
             </div>
             
             <div className="flex flex-wrap gap-4 md:gap-6 pt-6">
-              <a
-                href="/Parv_Paigwar_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                download
-                className="relative inline-flex group"
-              >
-                <Button variant="outline" className="bg-transparent border border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10 group-hover:animate-glow flex gap-2">
-                  <Download size={16} />
-                  <span>Download Resume</span>
-                </Button>
-              </a>
-              
               <a href="https://github.com/Parvpaigwar" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="bg-transparent border border-soft-purple text-soft-purple hover:bg-soft-purple/10 flex gap-2">
                   <Github size={16} />

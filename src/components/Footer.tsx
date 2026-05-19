@@ -6,12 +6,6 @@ const Footer: React.FC = () => {
   return (
     <footer className="py-8 px-6 bg-dark-bg/40 backdrop-blur-md border-t border-white/5 relative">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="text-center md:text-left mb-4 md:mb-0">
-          <p className="text-soft-purple text-sm">
-            © 2025 Parv Paigwar. Built with 💻, ⚙️, and a lot of ☕.
-          </p>
-        </div>
-        
         <div className="flex items-center gap-2">
           <a 
             href="#home" 
